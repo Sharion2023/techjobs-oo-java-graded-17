@@ -35,7 +35,17 @@ public class JobTest {
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
         Job equalityTestJob2= new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
-        boolean assertEquals(equalityTestJob1,equalityTestJob2);
+        assertFalse(equalityTestJob1.equals(equalityTestJob2));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        String newLine = System.lineSeparator();
+        Job newLineTestJob= new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
+                new PositionType ("creative"), new CoreCompetency ("arts creation"));
+      //  assertEquals((newLineTestJob.toString().charAt(0)), " ");
+        assertEquals(true, newLineTestJob.toString().startsWith(newLine));
+        assertEquals(true, newLineTestJob.toString().endsWith(newLine));
     }
 
 }

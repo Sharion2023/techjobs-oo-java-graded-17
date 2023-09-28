@@ -46,6 +46,11 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString(){
+        return System.lineSeparator();
+    }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
