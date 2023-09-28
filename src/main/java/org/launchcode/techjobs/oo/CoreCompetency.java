@@ -15,6 +15,9 @@ public class CoreCompetency {
 
     public CoreCompetency(String value) {
         this();
+        if(value.isEmpty()){
+            value ="Data not available";
+        }
         this.value = value;
     }
 
@@ -47,7 +50,7 @@ public class CoreCompetency {
     }
 
     public void setValue(String value) {
-        this.value = value;
+            this.value = value;
     }
 
     public int getId() {

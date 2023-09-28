@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 import org.junit.Test;
+import org.testng.annotations.AfterTest;
 
 import static org.testng.Assert.*;
 
@@ -22,11 +23,11 @@ public class JobTest {
         assertTrue(fullTestJob.getLocation() instanceof Location);
         assertTrue(fullTestJob.getPositionType() instanceof PositionType);
         assertTrue(fullTestJob.getCoreCompetency() instanceof CoreCompetency);
-        assertEquals("Product tester", fullTestJob.getName());
-        assertEquals("Quality control", fullTestJob.getPositionType().toString());
-        assertEquals("ACME", fullTestJob.getEmployer().toString());
-        assertEquals("Desert", fullTestJob.getLocation().toString());
-        assertEquals("Persistence", fullTestJob.getCoreCompetency().toString());
+        assertEquals(fullTestJob.getName(), "Product tester");
+        assertEquals(fullTestJob.getPositionType().toString(),"Quality control");
+        assertEquals( fullTestJob.getEmployer().toString(), "ACME");
+        assertEquals(fullTestJob.getLocation().toString(), "Desert");
+        assertEquals(fullTestJob.getCoreCompetency().toString(), "Persistence");
     }
 
     @Test
@@ -39,12 +40,12 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringStartsAndEndsWithNewLine(){
+    public void testToStringStartsAndEndsWithNewLine() {
         String newLine = System.lineSeparator();
-        Job newLineTestJob= new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
-                new PositionType ("creative"), new CoreCompetency ("arts creation"));
-        assertEquals(true, newLineTestJob.toString().startsWith(newLine));
-        assertEquals(true, newLineTestJob.toString().endsWith(newLine));
+        Job newLineTestJob = new Job("Artist", new Employer("Hallmark"), new Location("Kansas City"),
+                new PositionType("creative"), new CoreCompetency("arts creation"));
+        assertEquals(newLineTestJob.toString().startsWith(newLine), true);
+        assertEquals(newLineTestJob.toString().endsWith(newLine), true);
     }
 
     @Test
@@ -52,8 +53,20 @@ public class JobTest {
         String newLine = System.lineSeparator();
         Job labelsAndDataTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
-        assertEquals(newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
-                newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine, labelsAndDataTestJob.toString());
+        assertEquals(labelsAndDataTestJob.toString(), newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
+                newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine);
     }
 
+   @Test
+    public void testToStringHandlesEmptyField(){
+        String newLine = System.lineSeparator();
+        Job emptyFieldTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
+                new PositionType (""), new CoreCompetency ("arts creation"));
+        assertEquals(emptyFieldTestJob.toString(),newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
+                newLine+ "Position Type: Data not available" + newLine+ "Core Competency: arts creation" + newLine);
+       Job emptyFieldTestJob1 = new Job("Artist", new Employer (""), new Location ("Kansas City"),
+               new PositionType ("creative"), new CoreCompetency ("arts creation"));
+       assertEquals(emptyFieldTestJob1.toString(),newLine+ "ID: 2" + newLine + "Name: Artist" + newLine + "Employer: Data not available" + newLine + "Location: Kansas City" +
+               newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine);
+    }
 }

@@ -17,6 +17,9 @@ public class Location {
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
     public Location(String value) {
         this();
+        if(value.isEmpty()){
+            value ="Data not available";
+        }
         this.value = value;
     }
 
@@ -51,7 +54,7 @@ public class Location {
     }
 
     public void setValue(String value) {
-        this.value = value;
+            this.value = value;
     }
 
 }

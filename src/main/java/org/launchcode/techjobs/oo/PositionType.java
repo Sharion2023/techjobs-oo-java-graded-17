@@ -15,6 +15,9 @@ public class PositionType {
 
     public PositionType(String value) {
         this();
+        if(value.isEmpty()){
+            value ="Data not available";
+        }
         this.value = value;
     }
 
@@ -51,11 +54,14 @@ public class PositionType {
     }
 
     public String getValue() {
+        if (value.isEmpty()) {
+            value = "Data not available";
+        }
         return value;
     }
 
     public void setValue(String value) {
-        this.value = value;
+            this.value = value;
+        }
     }
 
-}

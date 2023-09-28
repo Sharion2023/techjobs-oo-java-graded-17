@@ -15,6 +15,9 @@ public class Employer {
 
     public Employer(String value) {
         this();
+        if(value.isEmpty()){
+            value ="Data not available";
+        }
         this.value = value;
     }
 
@@ -49,7 +52,7 @@ public class Employer {
     }
 
     public void setValue(String value) {
-        this.value = value;
+            this.value = value;
     }
 
 }
