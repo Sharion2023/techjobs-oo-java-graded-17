@@ -51,8 +51,10 @@ public class Job {
     @Override
     public String toString(){
         String newLine = System.lineSeparator();
-        return newLine + "ID: " + newLine + "Name: " + newLine + "Employer: "+ newLine + "Location: "+ newLine+
-                "Position Type: " + newLine + "Core Competency: " + newLine;
+        String s = newLine + "ID: " + this.getId() + newLine + "Name: " + this.getName() + newLine + "Employer: " + this.getEmployer() +
+                newLine + "Location: " + this.getLocation() + newLine + "Position Type: " + this.getPositionType() + newLine +
+                "Core Competency: " + this.getCoreCompetency() + newLine;
+        return s;
     }
 
 

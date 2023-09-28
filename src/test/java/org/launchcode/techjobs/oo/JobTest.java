@@ -52,8 +52,8 @@ public class JobTest {
         String newLine = System.lineSeparator();
         Job labelsAndDataTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
-        assertEquals(newLine+ "ID: " + newLine + "Name: " + newLine + "Employer: " + newLine + "Location: " +
-                newLine+ "Position Type: " + newLine+ "Core Competency: " + newLine, labelsAndDataTestJob.toString());
+        assertEquals(newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
+                newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine, labelsAndDataTestJob.toString());
     }
 
 }
