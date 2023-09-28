@@ -53,20 +53,20 @@ public class JobTest {
         String newLine = System.lineSeparator();
         Job labelsAndDataTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
-        assertEquals(labelsAndDataTestJob.toString(), newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
+        assertEquals(labelsAndDataTestJob.toString(), newLine+ "ID: "+ labelsAndDataTestJob.getId() + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
                 newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine);
     }
 
    @Test
     public void testToStringHandlesEmptyField(){
         String newLine = System.lineSeparator();
-        Job emptyFieldTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
+        Job emptyFieldTestJob = new Job("Artist", new Employer ("Hallmark"), new Location (""),
                 new PositionType (""), new CoreCompetency ("arts creation"));
-        assertEquals(emptyFieldTestJob.toString(),newLine+ "ID: 1" + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Kansas City" +
+        assertEquals(emptyFieldTestJob.toString(),newLine+ "ID: "+ emptyFieldTestJob.getId() + newLine + "Name: Artist" + newLine + "Employer: Hallmark" + newLine + "Location: Data not available" +
                 newLine+ "Position Type: Data not available" + newLine+ "Core Competency: arts creation" + newLine);
        Job emptyFieldTestJob1 = new Job("Artist", new Employer (""), new Location ("Kansas City"),
                new PositionType ("creative"), new CoreCompetency ("arts creation"));
-       assertEquals(emptyFieldTestJob1.toString(),newLine+ "ID: 2" + newLine + "Name: Artist" + newLine + "Employer: Data not available" + newLine + "Location: Kansas City" +
+       assertEquals(emptyFieldTestJob1.toString(),newLine+ "ID: "+ emptyFieldTestJob1.getId() + newLine + "Name: Artist" + newLine + "Employer: Data not available" + newLine + "Location: Kansas City" +
                newLine+ "Position Type: creative" + newLine+ "Core Competency: arts creation" + newLine);
     }
 }
