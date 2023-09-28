@@ -43,9 +43,17 @@ public class JobTest {
         String newLine = System.lineSeparator();
         Job newLineTestJob= new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
                 new PositionType ("creative"), new CoreCompetency ("arts creation"));
-      //  assertEquals((newLineTestJob.toString().charAt(0)), " ");
         assertEquals(true, newLineTestJob.toString().startsWith(newLine));
         assertEquals(true, newLineTestJob.toString().endsWith(newLine));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        String newLine = System.lineSeparator();
+        Job labelsAndDataTestJob = new Job("Artist", new Employer ("Hallmark"), new Location ("Kansas City"),
+                new PositionType ("creative"), new CoreCompetency ("arts creation"));
+        assertEquals(newLine+ "ID: " + newLine + "Name: " + newLine + "Employer: " + newLine + "Location: " +
+                newLine+ "Position Type: " + newLine+ "Core Competency: " + newLine, labelsAndDataTestJob.toString());
     }
 
 }

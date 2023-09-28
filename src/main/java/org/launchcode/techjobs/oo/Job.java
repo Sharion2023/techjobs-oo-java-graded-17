@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.util.Objects;
 
 public class Job {
@@ -48,7 +50,9 @@ public class Job {
 
     @Override
     public String toString(){
-        return System.lineSeparator();
+        String newLine = System.lineSeparator();
+        return newLine + "ID: " + newLine + "Name: " + newLine + "Employer: "+ newLine + "Location: "+ newLine+
+                "Position Type: " + newLine + "Core Competency: " + newLine;
     }
 
 
